@@ -33,7 +33,7 @@ def train_model(behaviourList, userId):
 @csrf_exempt
 def predict(request):
     I = Intellecto()
-    data = json.loads(request.body)
+    data = json.loads(request.body.decode('utf-8'))
     behaviour = json.loads(data['behaviour'])
     userId = data['userId']
     behaviourMap = behaviour['behaviourMap']
@@ -49,7 +49,7 @@ def predict(request):
 @csrf_exempt
 def train(request):
     I = Intellecto()
-    data = json.loads(request.body)
+    data = json.loads(request.body.decode('utf-8'))
     behaviourList = json.loads(data['behaviour'])
     userId = data['userId']
 
